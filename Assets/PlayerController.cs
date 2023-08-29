@@ -95,10 +95,12 @@ public class PlayerController : MonoBehaviour
             if (item.tag == "Finish")
             {
                 Win();
+                Cursor.lockState = CursorLockMode.None;
             }
             if (item.tag == "Enemy")
             {
                 Lost();
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
