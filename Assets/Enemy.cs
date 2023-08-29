@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -13,7 +15,7 @@ public class Enemy : MonoBehaviour
         detectionRange = 10f;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; // To prevent rigidbody from rotating due to physics
+        rb.freezeRotation = true;
     }
 
     private void Update()
@@ -24,18 +26,15 @@ public class Enemy : MonoBehaviour
 
             if (distanceToPlayer <= detectionRange)
             {
-                // Look at the player
                 Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
                 Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
 
-                // Move forward using Rigidbody velocity
                 Vector3 forwardDirection = transform.forward;
                 rb.velocity = forwardDirection * moveSpeed;
             }
             else
             {
-                // Stop the enemy's movement when player is out of detection range
                 rb.velocity = new Vector3(0f,rb.velocity.y,0f);
             }
         }
