@@ -26,5 +26,8 @@ Buraya bulleti ve düşmanı yok edecek iki satır Destroy kodu ekledim.
 ## Finish Tag'lı bir objemiz yok. 
 Finish ekranına gelebilmek için başta spaceshipe finish tagı ekledim ve box collideri trigger yaptım. fikrimi değiştirdim ve daha sonra finish trigger adında boş bir obje ve bir de spaceship'in yakınına yeşil renkte küçük basamak gibi bir şey ekledim.
 
+## Win ve Finish olduğunda oyun bitiyor ve oyunun kapanıp açılması gerekiyor.
+Bu UI kısımlarına birer buton ekleyerek oyunu yeniden başlatmayı sağladım.
+
 ## Bulletlar için object pooling yapılabilir. 
-bir şey ile iletişime geçmezlerse bir süre sonra Destroy edilebilir. IEnumerator ile bu yapılabilir. Aynı zamanda Terraine tag eklenip bulletin etkileşimi halinde yine yok edilebilir.
+bir obje ile etkileşime girmezlerse bir süre sonra bullet Destroy edilebilir. IEnumerator ile bu yapılabilir. Aynı zamanda Terraine farklı tag eklenip scriptte kontrolü sağlanarak bulletin etkileşimi halinde yine yok edilebilir.
